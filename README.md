@@ -27,7 +27,15 @@ XI ensembl CDS 661442 663286 . + 0 gene_id
 ```
 
 ## 统计 IV 号染色体上各类 feature （1.gtf文件的第3列，有些注释文件中还应同时考虑第2列） 的数目，并按升序排列。
-
+```
+$ cat 1.gtf | awk '$1=="IV" { print $3 } ' | sort | uniq -c | sort -n
+    853 start_codon
+    853 stop_codon
+    886 gene
+    886 transcript
+    895 CDS
+    933 exon
+```
 ## 寻找不在 IV 号染色体上的所有负链上的基因中最长的2条 CDS 序列，输出他们的长度。
 
 ## 寻找 XV 号染色体上长度最长的5条基因，并输出基因 id 及对应的长度。
